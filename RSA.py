@@ -6,6 +6,9 @@ class RSA:
         self.e = 65537
         self.generate_keys()
 
+    def get_public_key(self):
+        return self.public_key
+
     def string_to_ascii(self, message):
         return [ord(c) for c in message]
 
