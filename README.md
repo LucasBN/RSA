@@ -39,9 +39,9 @@ To generate primes p and q, the Miller-Rabin primality test is used. Sometimes, 
 
 ## Sources
 
-[Miller-Rabin](https://medium.com/@prudywsh/how-to-generate-big-prime-numbers-miller-rabin-49e6e6af32fb)
-[Cracking RSA](https://www.youtube.com/watch?v=lElHzac8DDI&list=WL&index=10&t=4s)
-[Continued fractions](http://einspem.upm.edu.my/journal/fullpaper/vol11saugust/45-57.pdf)
+1. [Miller-Rabin](https://medium.com/@prudywsh/how-to-generate-big-prime-numbers-miller-rabin-49e6e6af32fb)
+2. [Cracking RSA](https://www.youtube.com/watch?v=lElHzac8DDI&list=WL&index=10&t=4s)
+3. [Continued fractions](http://einspem.upm.edu.my/journal/fullpaper/vol11saugust/45-57.pdf)
 
 ## Future
 
