@@ -1,10 +1,57 @@
+from random import randrange, getrandbits
+
 class RSA:
 
     def __init__(self):
-        self.p = 7817
-        self.q = 7741
+        self.p = self.generate_prime_number()
+        self.q = self.generate_prime_number()
         self.e = 65537
         self.generate_keys()
+
+    def is_prime(self, n, k=128):
+        if n == 2 or n == 3:
+            return True
+        if n <= 1 or n % 2 == 0:
+            return False
+        s = 0
+        r = n - 1
+        while r & 1 == 0:
+            s += 1
+            r //= 2
+        for _ in range(k):
+            a = randrange(2, n - 1)
+            x = pow(a, r, n)
+            if (x != 1 and x != n - 1):
+                j = 1
+                while j < s and x != n - 1:
+                    x = pow(x, 2, n)
+                    if x == 1:
+                        return False
+                    j += 1
+                if x != n - 1:
+                    return False
+        return True
+
+    def generate_prime_candidate(self, length):
+
+        p = getrandbits(length)
+        p |= (1 << length - 1) | 1
+        return p
+
+    def generate_prime_number(self, length=1024):
+        p = 4
+        while not self.is_prime(p, 128):
+            p = self.generate_prime_candidate(length)
+        self.generate_prime_candidate(1) # Clears variables
+        return p
+
+    def check_encryption(self):
+        test_message = "abcdefghijklmnopqrstuvqxyz"
+        encrypted = self.encrypt(test_message)
+        decrypted = self.decrypt(encrypted)
+        if test_message == decrypted:
+            return True
+        return False
 
     def get_public_key(self):
         return self.public_key
@@ -16,12 +63,7 @@ class RSA:
         return chr(c)
 
     def mod_power(self, power, base, mod):
-        if power == 1:
-            return base % mod
-        elif (power % 2) == 0:
-            return ( (self.mod_power(power/2, base, mod) ** 2) % mod )
-        else:
-            return ( (self.mod_power(1, base, mod) * self.mod_power(power-1, base, mod)) % mod )
+        return pow(base, power, mod)
 
     def phi_primes(self):
         return ((self.p-1) * (self.q-1))

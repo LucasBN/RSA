@@ -3,6 +3,8 @@
 First, you must initialise an encryption class:
 
 ```
+from RSA import *
+
 rsa = RSA()
 ```
 
@@ -25,6 +27,12 @@ To get the public_key:
 rsa.get_public_key()
 ```
 
-## Features to implement:
+To ensure that the prime generation was successful:
 
-* Generate primes according to the [FIPS 186-3](https://csrc.nist.gov/csrc/media/publications/fips/186/3/archive/2009-06-25/documents/fips_186-3.pdf) standards
+```
+print(rsa.check_encryption())
+```
+
+## Prime Generation Method
+
+To generate primes p and q, the Miller-Rabin primality test is used. Sometimes, the Miller-Rabin test says that a composite number is prime, although the chance of this is very low. Bits of length 1024 are repeatedly randomly generated and primality tested. When a prime is found, it is returned. To check that the primes are actually prime, the function ```check_encryption()``` which takes no arguments, returns a True value if the encryption and decryption was successful on a test string. If the function returns false, the primes must be regenerated. Any random bits used to generate the primes are subsequently removed from memory.
