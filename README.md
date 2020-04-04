@@ -41,7 +41,9 @@ To generate primes p and q, the Miller-Rabin primality test is used. Sometimes, 
 
 1. [Miller-Rabin](https://medium.com/@prudywsh/how-to-generate-big-prime-numbers-miller-rabin-49e6e6af32fb)
 2. [Cracking RSA](https://www.youtube.com/watch?v=lElHzac8DDI&list=WL&index=10&t=4s)
-3. [Continued fractions](http://einspem.upm.edu.my/journal/fullpaper/vol11saugust/45-57.pdf)
+3. [Improved Wiener Attack](http://einspem.upm.edu.my/journal/fullpaper/vol11saugust/45-57.pdf)
+4. [Wiener Attack](https://en.wikipedia.org/wiki/Wiener%27s_attack)
+5. [Continued Fractions](https://en.wikipedia.org/wiki/Continued_fraction)
 
 ## Future
 
