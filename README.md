@@ -48,3 +48,4 @@ To generate primes p and q, the Miller-Rabin primality test is used. Sometimes, 
 * Digital signatures
 * Cracking RSA
 * Add padding + improved parameter selection + salting?
+* Fix any potential exploits in the key generation, using crack.py
