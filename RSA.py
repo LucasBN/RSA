@@ -2,7 +2,8 @@ from random import randrange, getrandbits
 
 class RSA:
 
-    def __init__(self):
+    def __init__(self, prime_length=1024):
+        self.prime_length = prime_length
         self.p = self.generate_prime_number()
         self.q = self.generate_prime_number()
         self.e = 65537
@@ -38,8 +39,9 @@ class RSA:
         p |= (1 << length - 1) | 1
         return p
 
-    def generate_prime_number(self, length=1024):
+    def generate_prime_number(self):
         p = 4
+        length = self.prime_length
         while not self.is_prime(p, 128):
             p = self.generate_prime_candidate(length)
         self.generate_prime_candidate(1) # Clears variables
