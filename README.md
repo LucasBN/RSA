@@ -1,6 +1,6 @@
 ## How to use:
 
-First, you must initialise an encryption class:
+First, you must initialise an encryption class, which takes an optional argument prime_length = 1024 (default):
 
 ```
 from RSA import *
@@ -36,3 +36,7 @@ print(rsa.check_encryption())
 ## Prime Generation Method
 
 To generate primes p and q, the Miller-Rabin primality test is used. Sometimes, the Miller-Rabin test says that a composite number is prime, although the chance of this is very low. Bits of length 1024 are repeatedly randomly generated and primality tested. When a prime is found, it is returned. To check that the primes are actually prime, the function ```check_encryption()``` which takes no arguments, returns a True value if the encryption and decryption was successful on a test string. If the function returns false, the primes must be regenerated. Any random bits used to generate the primes are subsequently removed from memory.
+
+## Sources
+
+[Miller-Rabin](https://medium.com/@prudywsh/how-to-generate-big-prime-numbers-miller-rabin-49e6e6af32fb)
